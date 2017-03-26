@@ -10,22 +10,22 @@
 // ==/UserScript==
 
 // Disable these keys when no keyboard modifier is pressed
-var keycodes = new Set([
+var std_keycodes = new Set([
     // Add keycodes as desired
     37, 38, 39, 40 // Arrow Keys.
 ]);
 
 // Disable these keys when Meta key is pressed.
 var meta_keycodes = new Set([
-	// Add keycodes as desired
-	70 // Ctrl + F
+    // Add keycodes as desired
+    70 // Ctrl + F
 ]);
 
 // Disable these keys when Alt key is pressed.
 var alt_keycodes = new Set([
-	// Add keycodes as desired
-	83 // Alt + S
-]); 
+    // Add keycodes as desired
+    83 // Alt + S
+]);
 
 
 // Don't change below this line.
@@ -34,16 +34,16 @@ var isMac = navigator.platform.indexOf('Mac') >= 0;
 
 
 document.addEventListener('keydown', function(e) {
-    //console.log(e);
+    var keycode_set;
     if (isMac ? e.metaKey : e.ctrlKey) {
-        if (meta_keycodes.has(e.keyCode)) {
-            e.stopImmediatePropagation();
-        }
+        keycode_set = meta_keycodes;
     } else if (e.altKey) {
-        if (alt_keycodes.has(e.keyCode)) {
-            e.stopImmediatePropagation();
-        }
-    } else if (keycodes.has(e.keyCode)) {
+        keycode_set = alt_keycodes;
+    } else {
+        keycode_set = std_keycodes;
+    }
+
+    if (keycode_set.has(e.keyCode)) {
         e.stopImmediatePropagation();
     }
     return false;
