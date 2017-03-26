@@ -30,7 +30,7 @@ var alt_keycodes = new Set([
 
 // Don't change below this line.
 
-var isMac = navigator.platform.toLowerCase().indexOf('mac') >= 0;
+var isMac = navigator.platform.indexOf('Mac') >= 0;
 
 
 document.addEventListener('keydown', function(e) {
