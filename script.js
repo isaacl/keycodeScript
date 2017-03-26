@@ -35,7 +35,7 @@ var isMac = navigator.platform.toLowerCase().indexOf('mac') >= 0;
 
 document.addEventListener('keydown', function(e) {
     //console.log(e);
-    if ((isMac && e.metaKey) || (!isMac && e.ctrlKey)) {
+    if (isMac ? e.metaKey : e.ctrlKey) {
         if (meta_keycodes.has(e.keyCode)) {
             e.stopImmediatePropagation();
         }
