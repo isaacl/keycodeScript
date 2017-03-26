@@ -6,7 +6,7 @@
 // @include        *
 // @grant          none
 // @version        0.0.2
-// @namespace      https://gist.github.com/isaacl
+// @namespace      https://github.com/isaacl/keycodeScript
 // ==/UserScript==
 
 // Disable these keys when no keyboard modifier is pressed
